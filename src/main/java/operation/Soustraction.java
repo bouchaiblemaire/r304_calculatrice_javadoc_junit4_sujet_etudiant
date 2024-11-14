@@ -1,11 +1,13 @@
 package operation;
+import expression.Expression;
+import operation.exception.DivisionParZeroException;
 import operation.exception.ManqueOperandeException;
 import operation.exception.OutOfCapicityException;
 
 
 /**
  * Soustraction faisant intervenir deux opérandes de type Expression<br/>
- * @see Nombre
+ * @see Expression
  * @see Operation 
  * @author B. LEMAIRE
  * @version 1.0
@@ -13,7 +15,7 @@ import operation.exception.OutOfCapicityException;
 public class Soustraction extends Operation
 {
 
-	public Soustraction(Nombre operande1, Nombre operande2) throws ManqueOperandeException, OutOfCapicityException {
+	public Soustraction(Expression operande1, Expression operande2) throws ManqueOperandeException, OutOfCapicityException {
 		super( operande1, operande2 );
 	}
 
@@ -26,7 +28,7 @@ public class Soustraction extends Operation
 
 		// vérification du dépassement de capacité
 		int soustraction = this.getOperande1().valeur() - this.getOperande2().valeur();
-		Operation.checkOperande( soustraction );
+		Expression.checkOperande( soustraction );
 
 		return soustraction ;
 	}

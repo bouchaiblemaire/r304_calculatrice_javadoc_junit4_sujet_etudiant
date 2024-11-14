@@ -1,10 +1,12 @@
 package operation;
+import expression.Expression;
+import operation.exception.DivisionParZeroException;
 import operation.exception.ManqueOperandeException;
 import operation.exception.OutOfCapicityException;
 
 /**
  * Multiplication faisant intervenir deux opérandes de type Expression<br/>
- * @see Nombre
+ * @see Expression
  * @see Operation
  * @author B. LEMAIRE
  * @version 1.0
@@ -12,7 +14,7 @@ import operation.exception.OutOfCapicityException;
 public class Multiplication extends Operation
 {
 
-	public Multiplication(Nombre operande1, Nombre operande2) throws ManqueOperandeException, OutOfCapicityException {
+	public Multiplication(Expression operande1, Expression operande2) throws ManqueOperandeException, OutOfCapicityException {
 		super( operande1, operande2 );
 	}
 
@@ -25,7 +27,7 @@ public class Multiplication extends Operation
 
 		// vérification du dépassement de capacité
 		int produit = this.getOperande1().valeur() * this.getOperande2().valeur();
-		Operation.checkOperande( produit );
+		Expression.checkOperande( produit );
 
 		return produit ;
 	}
