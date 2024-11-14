@@ -1,7 +1,7 @@
-import expression.Expression;
-import expression.Nombre;
+import nombre.Nombre;
 import operation.Addition;
 import operation.Division;
+import operation.Operation;
 import operation.Soustraction;
 import operation.exception.DivisionParZeroException;
 import operation.exception.ManqueOperandeException;
@@ -17,17 +17,17 @@ public class Application {
 
     public static void main( String [] args ){
         try {
-            Expression test = new Nombre(2);
-            Expression deux = new Nombre(2);
-            Expression trois = new Nombre(3);
-            Expression dixSept = new Nombre(17);
+            Nombre test = new Nombre(2);
+            Nombre deux = new Nombre(2);
+            Nombre trois = new Nombre(3);
+            Nombre dixSept = new Nombre(17);
 
 
-            Expression s = new Soustraction(dixSept, deux);
-            Expression a = new Addition(deux, trois);
-            Expression d = new Division(s, a);
+            Nombre soustraction = new Soustraction(dixSept, deux).valeur();
+            Operation addition = new Addition(deux, trois);
+            Operation division = new Division(soustraction, addition);
 
-            System.out.println(d + " = " + d.valeur()); // affiche ((17 - 2) / (2 + 3)) = 3
+            System.out.println(division + " = " + division.valeur()); // affiche ((17 - 2) / (2 + 3)) = 3
         }
         catch (ManqueOperandeException | OutOfCapicityException  | DivisionParZeroException e) {
         	e.printStackTrace();

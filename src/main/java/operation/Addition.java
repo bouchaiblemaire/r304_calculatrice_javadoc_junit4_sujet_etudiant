@@ -1,12 +1,10 @@
 package operation;
-import expression.Expression;
-import operation.exception.DivisionParZeroException;
 import operation.exception.ManqueOperandeException;
 import operation.exception.OutOfCapicityException;
 
 /**
  * Addition faisant intervenir deux opérandes de type Expression<br/>
- * @see Expression
+ * @see Nombre
  * @see Operation 
  * @author B. LEMAIRE
  * @version 1.0
@@ -15,7 +13,7 @@ public class Addition extends Operation
 {
 
 
-	public Addition(Expression operande1, Expression operande2) throws ManqueOperandeException, OutOfCapicityException {
+	public Addition(Nombre operande1, Nombre operande2) throws ManqueOperandeException, OutOfCapicityException {
 		super( operande1, operande2 );
 	}
 
@@ -27,7 +25,7 @@ public class Addition extends Operation
 
 		// vérification du dépassement de capacité
 		int somme = this.getOperande1().valeur() + this.getOperande2().valeur();
-		Expression.checkOperande( somme );
+		Operation.checkOperande( somme );
 
 		return somme ;
 	}

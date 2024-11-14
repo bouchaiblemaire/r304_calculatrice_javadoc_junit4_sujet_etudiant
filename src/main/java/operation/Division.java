@@ -1,12 +1,11 @@
 package operation;
-import expression.Expression;
 import operation.exception.DivisionParZeroException;
 import operation.exception.ManqueOperandeException;
 import operation.exception.OutOfCapicityException;
 
 /**
  * Division faisant intervenir deux opérandes de type Expression<br/>
- * @see Expression
+ * @see Nombre
  * @see Operation
  * @author B. LEMAIRE
  * @version 1.0
@@ -14,7 +13,7 @@ import operation.exception.OutOfCapicityException;
 public class Division extends Operation
 {
 
-	public Division(Expression operande1, Expression operande2) throws ManqueOperandeException, OutOfCapicityException {
+	public Division(Nombre operande1, Nombre operande2) throws ManqueOperandeException, OutOfCapicityException {
 		super( operande1, operande2 );
 	}
 
@@ -35,7 +34,7 @@ public class Division extends Operation
 		int quotient = this.getOperande1().valeur() / this.getOperande2().valeur();
 		// vérification du dépassement de capacité
 
-		Expression.checkOperande( quotient );
+		Operation.checkOperande( quotient );
 
 		return quotient ;
 	}
